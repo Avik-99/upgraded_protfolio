@@ -250,13 +250,13 @@ The PRD explicitly defines an Admin dashboard and management modules beyond auth
 
 | AD-002 | Provide complete content-management navigation. | Admin can access the agreed management areas for Profile, Experience, Education, Skills, Projects, Achievements, Certifications, Media Library, Resume, Gallery, Contact Messages, Comment Moderation, Website Settings, Analytics, Security & Activity, and Operations & Backups. |
 
-| AD-003 | Support English and Bangla Admin interface language. | Administrator can use the Admin Panel in English or Bangla independently of the selected public website language. Interface language preference is persisted. |
+| AD-003 | Support English and Bangla Admin interface language. | Administrator can use the Admin Panel in English or Bangla independently of the selected public website language. Interface language preference is persisted. Changing one preference does not unexpectedly change the other (merged from RE-010; see `REQUIREMENTS_ALIAS_ANNEX.md`). |
 
 | AD-004 | Provide website settings management. | Authorized administrator can manage the agreed configurable website settings without source-code edits. Settings changes are validated, protected and auditable. |
 
 | AD-005 | Provide management of legal and privacy information. | Public Privacy Policy, Terms and Cookie Policy are available with content that accurately describes the product's applicable data, attachment, analytics and retention practices. Publication and updates are controlled. |
 
-| AD-006 | Provide safe administrative content operations. | Admin create, update, publish, unpublish, archive and delete actions provide appropriate validation, confirmation and feedback. Destructive operations cannot silently bypass dependent records or media references. |
+| AD-006 | Provide safe administrative content operations. | Admin create, update, publish, unpublish, archive and delete actions provide appropriate validation, confirmation and feedback. Destructive operations cannot silently bypass dependent records or media references. Unsaved-change warnings and destructive-action confirmation apply to shipped admin workflows (carried from legacy FR-ADM-008; see `REQUIREMENTS_ALIAS_ANNEX.md`). |
 
 \### 5.5 Media Library
 
@@ -302,7 +302,7 @@ The PRD explicitly defines an Admin dashboard and management modules beyond auth
 
 | GA-002 | Use administrator-uploaded photographs only. | No placeholder, generated, stock or reference image is published automatically; empty state appears before upload. |
 
-| GA-003 | Manage albums and photos. | Admin can create albums, upload photos, choose cover/featured images, add metadata and reorder. |
+| GA-003 | Manage albums and photos. | Admin can create albums, upload photos, choose cover/featured images, add metadata and reorder. Album editing supports the defined album fields including optional destination and travel-range metadata (Page Design Specification §8.3); destination metadata is album-level only — no photo-level destination fields are currently defined. |
 
 | GA-004 | Support public, unlisted and private visibility. | Public content is listed; unlisted content is direct-link only and excluded from public listings, search and indexing; private content is admin-only. |
 
@@ -370,11 +370,11 @@ The PRD explicitly defines an Admin dashboard and management modules beyond auth
 
 | RE-007 | Support a default public resume. | Admin can select one eligible published resume as the default. Only a published version can be selected as the public default. |
 
-| RE-008 | Preserve resume version history. | Admin can distinguish current, previous, draft and unpublished resume versions. Updating a resume does not silently expose an unpublished version. |
+| RE-008 | Preserve resume version history. | Admin can distinguish current, previous, draft and unpublished resume versions. Updating a resume does not silently expose an unpublished version. Scope limit: version distinguishability only — not a version-control system (no snapshots, diffing or restore-to-point). Retention depth of historical versions is an unresolved owner decision (Catalog §12 DEC-013). |
 
 | RE-009 | Provide stable public resume access. | Published resumes can be previewed and downloaded through stable public access routes. Unpublished versions remain inaccessible. |
 
-| RE-010 | Support independent public and Admin language preferences. | Public language selection and Admin interface language selection are independent. Changing one does not unexpectedly change the other. |
+| RE-010 | `(merged into AD-003 per approved reconciliation decision D3 — alias retained in REQUIREMENTS_ALIAS_ANNEX.md)` | — |
 
 | RE-011 | Apply language-selection preference rules. | Returning visitor preference is respected. For a new visitor, browser language may suggest English or Bangla. Unsupported languages fall back to English. Manual selection remains available and persists. |
 
@@ -402,7 +402,7 @@ The PRD explicitly defines an Admin dashboard and management modules beyond auth
 
 | AN-008 | Apply analytics retention controls. | Analytics data follows the configured retention policy. Retention and deletion behavior is documented and consistent with the published privacy disclosures. |
 
-| AN-009 | Support date comparisons and reporting periods. | Admin can select reporting periods and compare supported aggregate metrics across date ranges. |
+| AN-009 | Support date comparisons and reporting periods. | Admin can select reporting periods and compare supported aggregate metrics across date ranges. Status: **Should priority; proposed R2 allocation; activation requires explicit product-owner approval before P20/P21 scope lock.** PRD §16 commits to "trends" only; the comparison capability is a catalog refinement pending owner confirmation. |
 
 | AN-010 | Prefer privacy-conscious analytics collection. | Analytics avoids unnecessary personal/sensitive data and invasive profiling. Cookieless analytics is preferred where it satisfies the product's measurement needs and applicable requirements. |
 
@@ -577,6 +577,13 @@ Gallery visibility must be enforced consistently.
 \- Sensitive credentials, tokens, MFA codes, recovery codes and session secrets must not appear in logs.
 
 \- Administrative and security audit records must themselves be protected from unauthorized access or modification.
+
+\### 6.8 Admin collection ergonomics
+
+Carried verbatim from legacy FR-ADM-007/FR-ADM-008 during the approved reconciliation (see `REQUIREMENTS_ALIAS_ANNEX.md`):
+
+- Search/filter/sort/pagination must be predictable wherever an admin collection is delivered (applies to Skills, Projects, Achievements, Certifications, Media Library, Contact inbox and other list views).
+- Unsaved-change warnings and destructive-action confirmation apply to shipped admin workflows.
 
 \## 7. Configurable values and decisions requiring confirmation
 
@@ -863,6 +870,7 @@ The following items require confirmation or completion before the catalog can be
 | DEC-011 | Confirm release allocation for all requirements. | To be completed in Scope and Releases. |
 
 | DEC-012 | Confirm all newly introduced v2.0 requirements as part of the approved product baseline. | Pending owner review. |
+| DEC-013 | Confirm resume version retention depth for RE-008 (how many historical resume versions are retained beyond the current/previous/draft/unpublished distinction). Recorded as an unresolved owner decision per the approved reconciliation; RE-008 is not approved as unrestricted version history. | Pending owner decision. |
 
 \### 12.1 Approval conditions
 
@@ -870,7 +878,7 @@ This document should be approved only after:
 
 \- All confirmed PRD commitments are represented.
 
-\- The original 67 requirement IDs are preserved.
+\- Legacy identifier continuity is preserved through `REQUIREMENTS_ALIAS_ANNEX.md`; the earlier "67 retained / 46 new" split of this draft could not be verified against a retained v1 source and is superseded by the verified reconciliation (see §14).
 
 \- New requirements are reviewed for duplication and scope accuracy.
 
@@ -893,6 +901,7 @@ This document should be approved only after:
 | 1.x | Previous | Original Requirements Catalog containing 67 requirements | Superseded after v2.0 approval |
 
 | 2.0 | 8 November 2026 | Expanded catalog, clarified acceptance criteria and incorporated confirmed PRD commitments | Draft for owner review |
+| 2.0-r1 | 8 November 2026 | Approved reconciliation edits (decisions D1–D6, owner-conditioned): RE-010 merged into AD-003 (112-ID baseline); RE-008 bounded to version distinguishability with retention depth unresolved (DEC-013); AN-009 marked Should/R2 owner-gated; legacy FR-ADM-007/FR-ADM-008/FR-GAL-003/FR-GAL-018 wording carried into acceptance criteria and §6.8; legacy identifiers preserved as aliases in `REQUIREMENTS_ALIAS_ANNEX.md`. Document status remains draft — pending owner approval. | Draft for owner review |
 
 \*\*Document owner:\*\* Portfolio owner / single administrator
 
@@ -922,7 +931,7 @@ The upgraded catalog contains the following proposed inventory:
 
 | Contact and email | 6 | 2 | 8 |
 
-| Resume and multilingual | 6 | 6 | 12 |
+| Resume and multilingual | 6 | 5 | 11 |
 
 | Analytics and privacy | 3 | 7 | 10 |
 
@@ -932,11 +941,13 @@ The upgraded catalog contains the following proposed inventory:
 
 | Non-functional requirements | 7 | 0 | 7 |
 
-| \*\*Total\*\* | \*\*67\*\* | \*\*46\*\* | \*\*113\*\* |
+| \*\*Total\*\* | \*\*67\*\* | \*\*45\*\* | \*\*112\*\* |
 
-67 original IDs preserved
+67 original IDs preserved (per the v2.0 draft's own inventory; continuity of legacy identifiers is maintained through `REQUIREMENTS_ALIAS_ANNEX.md`).
 
-46 proposed additions
+45 proposed additions (39 catalog-only IDs verified during the approved reconciliation, minus RE-010 merged into AD-003).
+
+\*\*Reconciliation note (8 November 2026):\*\* The inventory was verified section-by-section against §5 (113 IDs before the approved D3 merge). RE-010 was merged into AD-003, yielding the approved 112-ID canonical baseline. The final wording and status of the 38 retained additions remain subject to owner ratification at v2.0 approval (DEC-012). Legacy identifiers are retired as aliases only; see `REQUIREMENTS_ALIAS_ANNEX.md`.
 
 \*\*Important:\*\* The 46 new requirements are proposed additions based on the PRD. They are not automatically approved merely because Option A was selected. The complete v2.0 document remains subject to your review and approval.
 

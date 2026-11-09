@@ -905,13 +905,13 @@ Use these documents together:
 
 - `PRD.md` / approved PRD: product goals, audience, user-visible behavior and scope.
 - `ADD_Comprehensive.md`: architecture layers, responsibilities, patterns and dependency rules.
-- `REQUIREMENTS_CATALOG.md`: detailed requirement definitions.
-- `REQUIREMENTS_TRACEABILITY.md`: mapping from requirements to design, implementation and tests.
-- `SCOPE_AND_RELEASES.md`: release boundaries and priorities.
+- `REQUIREMENTS_CATALOG.md`: detailed requirement definitions (canonical 112-ID baseline; retired legacy identifiers aliased in `REQUIREMENTS_ALIAS_ANNEX.md`).
+- `REQUIREMENTS_TRACEABILITY_v2.md`: mapping from requirements to design, implementation and tests.
+- `SCOPE_AND_RELEASES_v2.md`: release boundaries and priorities.
 - `ASSUMPTIONS_AND_DEPENDENCIES.md`: assumptions and external dependencies.
 - `TESTING_STRATEGY.md`: test coverage and release quality strategy.
-- `implementation_plan_document.md`: delivery sequencing.
-- `TECHNICAL_SPEC.md` (this document): technical defaults, implementation constraints and deployment configuration.
+- `Implementation_Plan.md`: delivery sequencing.
+- `TECHNICAL_SPEC_v2.md` (this document): technical defaults, implementation constraints and deployment configuration.
 
 If documents appear to conflict:
 1. Product scope and user-visible behavior are governed by the approved PRD and requirements catalogue.

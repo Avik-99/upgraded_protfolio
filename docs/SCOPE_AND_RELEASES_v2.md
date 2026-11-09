@@ -209,7 +209,7 @@ implementation tasks and traceability.
   -----------------------------------------------------------------------
   Requirement IDs         Proposed allocation     Notes
   ----------------------- ----------------------- -----------------------
-  `FR-PUB-001`            R1 foundation; R2       R1 delivers the
+  `PR-001`, `PR-002`, `PR-007`            R1 foundation; R2       R1 delivers the
                           Gallery completion      portfolio pages and an
                                                   agreed Gallery
                                                   foundation. The Gallery
@@ -217,28 +217,28 @@ implementation tasks and traceability.
                                                   omitted from the
                                                   product.
 
-  `FR-PUB-002`            R1, continuous          Published-only
+  `CT-002` + Catalog §6.1            R1, continuous          Published-only
                                                   eligibility and no
                                                   draft/private leakage
                                                   are foundational.
 
-  `FR-PUB-003`            R1                      Dark/light themes and
+  `PR-005`, `PR-006`            R1                      Dark/light themes and
                                                   persisted preference
                                                   are part of the first
                                                   public experience.
 
-  `FR-PUB-004`            R2 complete; R1 English R1 is English-first and
+  `RE-003`            R2 complete; R1 English R1 is English-first and
                           baseline                must not claim full
                                                   bilingual support. R2
                                                   completes
                                                   English/Bangla public
                                                   workflows.
 
-  `FR-PUB-005`            R2                      Global grouped search
+  `PR-003`            R2                      Global grouped search
                                                   across approved content
                                                   types.
 
-  `FR-PUB-006`            R1 baseline; R2/R3      Accessibility is built
+  `PR-004`, `PR-009`            R1 baseline; R2/R3      Accessibility is built
                           regression and full     in from the start. R1
                           validation              must pass the
                                                   accessibility gate for
@@ -246,14 +246,14 @@ implementation tasks and traceability.
                                                   releases expand and
                                                   repeat validation.
 
-  `FR-PUB-007`            R1 core; R2             R1 contact form and
+  `CO-001`, `CO-005`            R1 core; R2             R1 contact form and
                           conversation            durable inbox are
                           enhancements            production-safe. R2 may
                                                   add richer thread/reply
                                                   capabilities where not
                                                   included in R1.
 
-  `FR-PUB-008`            R1 default published    Stable public access
+  `RE-009`            R1 default published    Stable public access
                           resume; R2 variants     must never expose
                                                   drafts or unpublished
                                                   files.
@@ -264,42 +264,42 @@ implementation tasks and traceability.
   -------------------------------------------------------------------------------
   Requirement IDs         Proposed allocation     Notes
   ----------------------- ----------------------- -------------------------------
-  `FR-ADM-001`            R1                      Single-admin protected
+  `ID-006`, `AD-002`            R1                      Single-admin protected
                                                   management area.
 
-  `FR-ADM-002`            R1 core CRUD; R2        Every agreed module must be
+  `CT-001`, `CT-004`, `CT-005`            R1 core CRUD; R2        Every agreed module must be
                           completion of remaining allocated to a concrete task;
                           content types/workflows do not claim complete CRUD for
                                                   a module that is not
                                                   implemented.
 
-  `FR-ADM-003`            R1 core publishing; R2  Safe draft/published separation
+  `CT-002`, `CT-003`            R1 core publishing; R2  Safe draft/published separation
                           advanced workflows as   is mandatory before public
                           needed                  release of managed content.
 
-  `FR-ADM-004`            R2, if operationally    Scheduled publishing is
+  `CT-006`            R2, if operationally    Scheduled publishing is
                           feasible and approved   required by the catalog where
                                                   appropriate. If deferred,
                                                   record the exact scope slice
                                                   and owner decision; do not
                                                   silently omit it.
 
-  `FR-ADM-005`            R1 essential dashboard; R1 displays only real available
+  `AD-001`            R1 essential dashboard; R1 displays only real available
                           R2 expanded             counts and useful operational
                           operational/analytics   status; no fabricated metrics.
                           views                   
 
-  `FR-ADM-006`            R1 essential settings;  Sensitive settings require
+  `AD-004`            R1 essential settings;  Sensitive settings require
                           R2 remaining settings   validation, authorization, and
                                                   audit.
 
-  `FR-ADM-007`            R1 for shipped          Search/filter/sort/pagination
+  `ML-001`, `CO-004` + Catalog §6.8            R1 for shipped          Search/filter/sort/pagination
                           collections; R2         must be predictable wherever a
-                          remaining collections   collection is delivered.
+                          remaining collections   collection is delivered (legacy FR-ADM-007 clause carried into Catalog §6.8; see REQUIREMENTS_ALIAS_ANNEX.md).
 
-  `FR-ADM-008`            R1                      Unsaved-change warnings and
+  `AD-006`            R1                      Unsaved-change warnings and
                                                   destructive-action confirmation
-                                                  for shipped admin workflows.
+                                                  for shipped admin workflows (Catalog §6.8 carries the legacy wording; see REQUIREMENTS_ALIAS_ANNEX.md).
   -------------------------------------------------------------------------------
 
 ### 5.3 Identity and security workflows
@@ -307,16 +307,19 @@ implementation tasks and traceability.
   ------------------------------------------------------------------------------
   Requirement IDs                Proposed allocation     Notes
   ------------------------------ ----------------------- -----------------------
-  `FR-SEC-001`--`FR-SEC-007`     R1                      One-time setup, role
+  `ID-001`--`ID-007`             R1                      One-time setup, role
                                                          seeding, secure admin
                                                          creation, MFA/recovery,
                                                          password reset, no
                                                          additional admin
                                                          creation, and audit are
-                                                         production
-                                                         prerequisites.
+                                                         production prerequisites.
+                                                         Carries legacy
+                                                         FR-SEC-001--FR-SEC-007
+                                                         and NFR-SEC-002 (annex).
 
-  `NFR-SEC-001`--`NFR-SEC-003`   R1 baseline; continuous Secure defaults,
+  `SEC-001`--`SEC-006`,
+  plus `ID-006`                  R1 baseline; continuous Secure defaults,
                                                          server-side
                                                          authorization, secret
                                                          handling, CSRF, output
@@ -325,9 +328,14 @@ implementation tasks and traceability.
                                                          dependency/container
                                                          checks apply from the
                                                          first public release.
-                                                         R3 adds deeper
-                                                         hardening and
-                                                         regression.
+                                                         R3 adds deeper hardening
+                                                         and regression. Carries
+                                                         legacy NFR-SEC-001--
+                                                         NFR-SEC-003 (annex).
+
+  `SEC-008`                      R1                      Reauthentication/MFA
+                                                         for sensitive admin
+                                                         actions.
   ------------------------------------------------------------------------------
 
 ### 5.4 Media Library
@@ -335,18 +343,25 @@ implementation tasks and traceability.
   ----------------------------------------------------------------------------
   Requirement IDs              Proposed allocation     Notes
   ---------------------------- ----------------------- -----------------------
-  `FR-MED-001`                 R1                      Seven approved media
+  `ML-001`, `ML-012`,
+  `ML-014`                     R1                      Seven approved media
                                                        categories are
-                                                       established.
+                                                       established. Asset
+                                                       metadata management
+                                                       (`ML-014`) and media
+                                                       audit history (`ML-012`)
+                                                       cover the legacy
+                                                       FR-MED-001/FR-MED-009
+                                                       duties (annex).
 
-  `FR-MED-002`                 R1 basic upload; R2     R1 upload must be safe
-                               robust bulk workflow    and reliable for its
+  `ML-013`                     R1 basic upload; R2     R1 upload must be safe
+                                robust bulk workflow    and reliable for its
                                                        supported use. R2
                                                        completes bulk
                                                        progress/retry
                                                        experience.
 
-  `FR-MED-003`--`FR-MED-004`   R1                      Server-side content
+  `ML-003`, `ML-002`           R1                      Server-side content
                                                        validation and
                                                        public/private
                                                        separation are
@@ -354,21 +369,22 @@ implementation tasks and traceability.
                                                        uploads are used
                                                        publicly.
 
-  `FR-MED-005`                 R1 safe reference       No accidental deletion
-                               protection; R2 richer   of referenced assets.
-                               usage display           
+  `ML-006`, `ML-007`           R1 safe reference       No accidental deletion
+                                protection; R2 richer   of referenced assets.
+                                usage display
 
-  `FR-MED-006`                 R1 safe original        Processing failures
-                               preservation; R2 full   must not destroy
-                               responsive variant      originals in any
-                               workflow                release.
+  `ML-005`                     R1 safe original        Processing failures
+                                preservation; R2 full   must not destroy
+                                responsive variant      originals in any
+                                workflow                release.
 
-  `FR-MED-007`--`FR-MED-010`   R2                      Recycle bin, duplicate
+  `ML-008`--`ML-010`,
+  plus `ML-001` reuse          R2                      Recycle bin, duplicate
                                                        detection, advanced
                                                        search/filter, quotas,
                                                        and monitoring.
 
-  `FR-MED-011`                 R1                      A configured scanner or
+  `ML-004`                     R1                      A configured scanner or
                                                        equivalent approved
                                                        scanning service must
                                                        be operational for
@@ -377,9 +393,15 @@ implementation tasks and traceability.
                                                        unavailable or
                                                        indeterminate.
 
-  `FR-MED-012`                 R1 backup coverage; R2  Media and metadata must
-                               management visibility;  be recoverable
-                               R3 recovery drills      together.
+  `ML-011`                     R1                      Persistent and portable
+                                                       storage abstraction for
+                                                       media.
+
+  `OP-003`, `NFR-007`,
+  `GA-010`                     R1 backup coverage; R2  Media and metadata must
+                                management visibility;  be recoverable
+                                R3 recovery drills      together. Carries legacy
+                                                       FR-MED-012 (annex).
   ----------------------------------------------------------------------------
 
 ### 5.5 Personal / Travel Gallery
@@ -387,46 +409,59 @@ implementation tasks and traceability.
   ------------------------------------------------------------------------------
   Requirement IDs              Proposed allocation     Notes
   ---------------------------- ----------------------- -------------------------
-  `FR-GAL-001`--`FR-GAL-006`   R1 secure foundation;   R1 includes a dedicated
-                               R2 completion           route, core album/photo
-                                                       management, media
-                                                       integration, publication
-                                                       rules, and safe
-                                                       Public/Unlisted/Private
-                                                       behavior for any exposed
-                                                       Gallery functionality. R2
-                                                       completes the broader
-                                                       experience.
+  `GA-001`--`GA-006`           R1 secure foundation;   R1 includes a dedicated
+                                R2 completion           route, core album/photo
+                                                        management, media
+                                                        integration, publication
+                                                        rules, and safe
+                                                        Public/Unlisted/Private
+                                                        behavior for any exposed
+                                                        Gallery functionality.
+                                                        R2 completes the broader
+                                                        experience. Album
+                                                        destination fields per
+                                                        Page Design Spec 8.3
+                                                        (album-level only).
 
-  `FR-GAL-007`--`FR-GAL-013`   R2                      Layout controls, featured
-                                                       ordering, advanced
-                                                       search/filter, full
-                                                       viewer interactions,
-                                                       related content, sharing
-                                                       metadata, and controlled
-                                                       downloads.
+  `GA-007`--`GA-014`           R2                      Layout controls, featured
+                                                        ordering, advanced
+                                                        search/filter, full
+                                                        viewer interactions,
+                                                        related content, sharing
+                                                        metadata, and controlled
+                                                        downloads.
 
-  `FR-GAL-014`--`FR-GAL-015`   R2, optional and        Comments remain disabled
-                               disabled by default     unless moderation, rate
-                                                       limits, privacy, and
-                                                       retention are fully
-                                                       implemented.
+  `GA-008`                     R2, optional and        Comments remain disabled
+                                disabled by default     unless moderation, rate
+                                                        limits, privacy, and
+                                                        retention are fully
+                                                        implemented. Carries
+                                                        legacy FR-GAL-014/
+                                                        FR-GAL-015 (annex).
 
-  `FR-GAL-016`                 R2                      Gallery-specific
-                                                       aggregate analytics and
-                                                       privacy controls.
+  `AN-006`                     R2                      Gallery-specific
+                                                        aggregate analytics and
+                                                        privacy controls.
 
-  `FR-GAL-017`                 R1, continuous          Only
-                                                       owner-uploaded/selected
-                                                       photographs become real
-                                                       Gallery content. Until
-                                                       then, show an honest
-                                                       empty state.
+  `GA-002`                     R1, continuous          Only
+                                                        owner-uploaded/selected
+                                                        photographs become real
+                                                        Gallery content. Until
+                                                        then, show an honest
+                                                        empty state.
 
-  `FR-GAL-018`                 R1 foundation; R2/R3    Reuse Media Library
-                               validation              storage, processing,
-                                                       usage tracking, backup,
-                                                       and restore behavior.
+  `ML-002`, `OP-003`,
+  `GA-010`                     R1 foundation; R2/R3    Reuse Media Library
+                                validation              storage, processing,
+                                                        usage tracking, backup,
+                                                        and restore behavior.
+                                                        Carries legacy
+                                                        FR-GAL-018 (annex).
+
+  `GA-015`                     R2 optional             Gallery content settings
+                                                        management at album and
+                                                        photograph level
+                                                        (Catalog section 5.6).
   ------------------------------------------------------------------------------
 
 **Gallery release rule:** R1 may deliver a deliberately limited Gallery
@@ -440,41 +475,65 @@ records together.
   ----------------------------------------------------------------------------
   Requirement IDs              Proposed allocation     Notes
   ---------------------------- ----------------------- -----------------------
-  `FR-CON-001`--`FR-CON-002`   R1                      Persist before email;
-                                                       track message and
-                                                       notification delivery
-                                                       independently; bounded
-                                                       retry and idempotency.
+  `CO-002`, `CO-003`           R1                      Persist before email;
+                                                        track message and
+                                                        notification delivery
+                                                        independently; bounded
+                                                        retry and idempotency.
+                                                        Carries legacy
+                                                        FR-CON-001/FR-CON-002
+                                                        (annex).
 
-  `FR-CON-003`                 R2                      Conversation threads,
-                                                       visitor-visible
-                                                       replies, and admin-only
-                                                       notes.
+  `CO-004`, `CO-008`           R2                      Conversation threads,
+                                                        visitor-visible replies,
+                                                        reliable replies (retry
+                                                        must not create
+                                                        duplicates). Carries
+                                                        legacy FR-CON-003
+                                                        (annex).
 
-  `FR-CON-004`                 R1                      Attachment policy,
-                                                       validation, scanning,
-                                                       and private authorized
-                                                       access are required if
-                                                       attachments are enabled
-                                                       in R1.
+  `CO-005`, `CO-007`           R1                      Attachment policy
+                                                        (numeric limits
+                                                        configurable; DEC-005
+                                                        pending), validation,
+                                                        scanning, and private
+                                                        authorized access are
+                                                        required if attachments
+                                                        are enabled in R1.
+                                                        Carries legacy
+                                                        FR-CON-004 (annex).
 
-  `FR-CON-005`                 R1 basic safe handling; Do not silently delete
-                               R2 expanded retention   active messages. Audit
-                               controls                retention/deletion
-                                                       operations.
+  `CO-006`                     R1 basic safe handling; Do not silently delete
+                                R2 expanded retention   active messages. Audit
+                                controls                retention/deletion
+                                                        operations.
 
-  `FR-RES-001`                 R2 complete; R1 default R1 provides the initial
-                               resume                  published resume. R2
-                                                       adds independent
-                                                       language/professional
-                                                       variants.
+  `RE-001`, `RE-007`           R2 complete; R1 default R1 provides the initial
+                                resume                  published resume. R2
+                                                        adds independent
+                                                        language/professional
+                                                        variants. Carries legacy
+                                                        FR-RES-001 (annex).
 
-  `FR-RES-002`                 R1                      Draft/unpublished
-                                                       resume files must never
-                                                       be public.
+  `RE-002`, `RE-009`           R1                      Draft/unpublished
+                                                        resume files must never
+                                                        be public. Carries
+                                                        legacy FR-RES-002
+                                                        (annex).
 
-  `FR-RES-003`                 R2                      Aggregate download
-                                                       analytics.
+  `AN-005`                     R2                      Aggregate download
+                                                        analytics. Carries
+                                                        legacy FR-RES-003
+                                                        (annex).
+
+  `RE-008`                     R1                      Limited resume version
+                                                        distinguishability
+                                                        (current/previous/
+                                                        draft/unpublished);
+                                                        not a version-control
+                                                        system. Retention depth
+                                                        is an unresolved owner
+                                                        decision (Catalog DEC-013).
   ----------------------------------------------------------------------------
 
 ### 5.7 Multilingual, SEO, and analytics
@@ -482,99 +541,155 @@ records together.
   -------------------------------------------------------------------------------
   Requirement IDs                Proposed allocation     Notes
   ------------------------------ ----------------------- ------------------------
-  `FR-I18N-001`--`FR-I18N-003`   R2                      English/Bangla public
-                                                         and Admin interface
-                                                         workflows, translation
-                                                         management, and safe
-                                                         fallback. R1 remains
-                                                         explicitly
-                                                         English-first.
+  `RE-003`, `RE-004`,
+  `RE-005`                       R2                      English/Bangla public
+                                                          workflows, translation
+                                                          management, and safe
+                                                          fallback. R1 remains
+                                                          explicitly English-first.
+                                                          Phantom FR-I18N-001--
+                                                          FR-I18N-003 retired;
+                                                          intended meaning mapped
+                                                          to RE-003/RE-004/RE-005
+                                                          and AD-003 (annex,
+                                                          decision D4).
 
-  `FR-SEO-001`                   R1 canonical/essential  R2 completes bilingual
-                                 SEO; R2 complete        prefixes and localized
-                                 localized routing       metadata behavior.
+  `AD-003`                       R2                      Admin interface language
+                                                          independent of the
+                                                          public website
+                                                          language; guaranteed
+                                                          by the merged-from-
+                                                          RE-010 clause in
+                                                          Catalog AD-003 (annex).
 
-  `FR-SEO-002`                   R1 sitemap for          Draft/private/unlisted
-                                 R1-eligible content; R2 exclusions apply from
-                                 full multilingual       R1.
-                                 eligibility             
+  `PR-008`, `RE-003`, `RE-006`   R1 canonical/essential  R2 completes bilingual
+                                  SEO; R2 complete        prefixes and localized
+                                  localized routing       metadata behavior.
+                                                          Carries legacy
+                                                          FR-SEO-001 (annex).
 
-  `FR-ANA-001`--`FR-ANA-002`     R2                      Privacy-conscious
-                                                         aggregate analytics,
-                                                         exports, consent, and
-                                                         retention. R1 must not
-                                                         introduce unapproved
-                                                         invasive tracking.
+  `PR-008`, `GA-009`, `RE-006`   R1 sitemap for          Draft/private/unlisted
+                                  R1-eligible content; R2 exclusions apply from
+                                  full multilingual       R1. Carries legacy
+                                  eligibility             FR-SEO-002 (annex).
+
+  `AN-001`--`AN-004`, `AN-010`   R2                      Privacy-conscious
+                                                          aggregate analytics,
+                                                          exports, consent, and
+                                                          retention. R1 must not
+                                                          introduce unapproved
+                                                          invasive tracking.
+                                                          Carries legacy
+                                                          FR-ANA-001--FR-ANA-002
+                                                          (annex).
+
+  `AN-002`, `AN-007`, `AN-008`   R2                      Admin activity excluded
+                                                          from visitor metrics;
+                                                          authorized exports
+                                                          without sensitive data;
+                                                          retention per configured
+                                                          policy (AN-008 value
+                                                          pending D-038).
+
+  `AN-009`                       R2 owner-gated          Should priority; date
+                                                          comparisons require
+                                                          explicit owner approval
+                                                          before P20/P21 scope
+                                                          lock (Catalog section
+                                                          5.9).
   -------------------------------------------------------------------------------
 
 ### 5.8 Non-functional requirements
 
   ------------------------------------------------------------------------------
   Requirement IDs                Allocation              R1 production
-                                                         requirement
+                                                          requirement
   ------------------------------ ----------------------- -----------------------
-  `NFR-SEC-001`--`NFR-SEC-003`   R1 baseline; R3         All essential security
-                                 advanced review         controls for R1
-                                                         features must pass
-                                                         before launch.
+  `SEC-001`--`SEC-006`,
+  plus `ID-006`                  R1 baseline; R3         All essential security
+                                  advanced review         controls for R1
+                                                          features must pass
+                                                          before launch. Carries
+                                                          legacy NFR-SEC-001--
+                                                          NFR-SEC-003 (annex).
 
-  `NFR-PRIV-001`                 R1 baseline; R2         Data minimization,
-                                 expanded workflows; R3  privacy disclosure,
-                                 review                  safe access, and
-                                                         retention decisions for
-                                                         live features.
+  `AN-002`, `AN-010`,
+  `SEC-007`, `SEC-009`           R1 baseline; R2         Data minimization,
+                                  expanded workflows; R3  privacy disclosure,
+                                  review                  safe access, and
+                                                          retention decisions for
+                                                          live features. Carries
+                                                          legacy NFR-PRIV-001
+                                                          (annex).
 
-  `NFR-ACC-001`                  R1 for shipped          Shipped R1 journeys
-                                 journeys; R2/R3         must meet the agreed
-                                 expanded validation     accessibility target
-                                                         before production
-                                                         launch.
+  `NFR-001`                      R1 for shipped          Shipped R1 journeys
+                                  journeys; R2/R3         must meet the agreed
+                                  expanded validation     accessibility target
+                                                          before production
+                                                          launch.
 
-  `NFR-PERF-001`                 R1 baseline             Establish realistic
-                                 measurement; R2         initial budgets before
-                                 optimization; R3 load   R1 sign-off; do not
-                                 testing                 invent numeric targets.
+  `NFR-003`                      R1 baseline             Establish realistic
+                                  measurement; R2         initial budgets before
+                                  optimization; R3 load   R1 sign-off; do not
+                                  testing                 invent numeric targets
+                                                          (D-037 pending).
 
-  `NFR-REL-001`                  R1 baseline; continuous Central errors, health
-                                                         checks, bounded
-                                                         retries, idempotency,
-                                                         and graceful handling
-                                                         for production
-                                                         dependencies.
+  `NFR-005`                      R1 baseline; continuous Central errors, health
+                                                          checks, bounded
+                                                          retries, idempotency,
+                                                          and graceful handling
+                                                          for production
+                                                          dependencies.
 
-  `NFR-DR-001`                   R1 production gate; R3  The approved RPO ≤4h
-                                 repeatable drills and   and RTO ≤4h targets
-                                 maturity                must be feasible and
-                                                         demonstrated before the
-                                                         first production launch
-                                                         if they are retained as
-                                                         hard production
-                                                         commitments.
+  `OP-004`                       R1 production gate; R3  The approved RPO <=4h
+                                  repeatable drills and   and RTO <=4h targets
+                                  maturity                must be feasible and
+                                                          demonstrated before the
+                                                          first production launch
+                                                          if they are retained as
+                                                          hard production
+                                                          commitments.
 
-  `NFR-COMP-001`                 R1 supported-browser    Agree minimum supported
-                                 baseline; R2/R3 full    versions before release
-                                 regression              sign-off.
+  `NFR-002`, `PR-009`            R1 supported-browser    Agree minimum supported
+                                  baseline; R2/R3 full    versions before release
+                                  regression              sign-off.
 
-  `NFR-MAINT-001`                R1, continuous          Architecture
-                                                         boundaries, tests, and
-                                                         traceability maintained
-                                                         from the start.
+  `NFR-006`                      R1, continuous          Architecture
+                                                          boundaries, tests, and
+                                                          traceability maintained
+                                                          from the start.
 
-  `NFR-DEP-001`                  R1                      Clean Docker-compatible
-                                                         deployment to the
-                                                         selected production
-                                                         target.
+  `OP-005`, `OP-006`,
+  `OP-009`, `ML-011`             R1                      Clean Docker-compatible
+                                                          deployment to the
+                                                          selected production
+                                                          target. Carries legacy
+                                                          NFR-DEP-001 (annex).
 
-  `NFR-OBS-001`                  R1 essential            R1 must provide enough
-                                 monitoring; R2 expanded operational visibility
-                                 dashboard; R3           to detect critical
-                                 alert/runbook maturity  production failures.
+  `OP-001`, `OP-010`             R1 essential            R1 must provide enough
+                                  monitoring; R2 expanded operational visibility
+                                  dashboard; R3           to detect critical
+                                  alert/runbook maturity  production failures.
+                                                          Carries legacy
+                                                          NFR-OBS-001 (annex).
 
-  `NFR-DATA-001`                 R1, continuous          Transactions, reference
-                                                         integrity, and
-                                                         coordinated
-                                                         database/media backup
-                                                         behavior.
+  `NFR-007`, `OP-003`            R1, continuous          Transactions, reference
+                                                          integrity, and
+                                                          coordinated
+                                                          database/media backup
+                                                          behavior. Carries
+                                                          legacy NFR-DATA-001
+                                                          (annex).
+
+  `OP-002`                       R1                      Controlled maintenance
+                                                          mode (Catalog section
+                                                          5.10).
+
+  `OP-008`                       R1                      Canonical domain,
+                                                          HTTPS, www policy and
+                                                          certificate management;
+                                                          final domain pending
+                                                          D-036.
   ------------------------------------------------------------------------------
 
 ## 6. Release 1 --- Professional Foundation
@@ -1059,7 +1174,8 @@ For each requirement, record at minimum:
     Blocked, or Removed.
 -   Evidence location and owner approval where required.
 
-The existing `REQUIREMENTS_TRACEABILITY.md` is a framework and currently
+The traceability file is `REQUIREMENTS_TRACEABILITY_v2.md`. Its matrix is
+reconciled to the canonical 112-ID baseline (8 November 2026), and it
 states that its readiness audit is pending. This document does not claim
 that audit is complete. Update the traceability file after this release
 allocation is approved.
@@ -1129,6 +1245,21 @@ The original `SCOPE_AND_RELEASES.md` should remain unchanged until this
 draft is reviewed and explicitly approved. After approval, adopt this
 document as the new canonical release baseline and update the
 Requirements Traceability and Implementation Plan.
+
+#### 2.0-r1 reconciliation note (8 November 2026)
+
+Section 5 was rebuilt on the approved 112-ID canonical requirement baseline
+(reconciliation decisions D1-D6, owner-conditioned): legacy FR-*/NFR-*
+allocation tokens were re-pointed to `REQUIREMENTS_CATALOG.md` IDs, the
+retired phantom FR-I18N-001--FR-I18N-003 were re-pointed per decision D4,
+and every legacy identifier remains resolvable as an alias in
+`REQUIREMENTS_ALIAS_ANNEX.md`. The four carried acceptance-criterion
+wordings (admin search/filter/sort/pagination, admin unsaved-change
+warnings, album destination metadata per Page Design Specification 8.3,
+and Gallery reuse of Media Library storage) are preserved in the rebuilt
+rows and the Catalog. Release slices (R1/R2/R3) are unchanged. Document
+status remains draft --- pending owner review; this note does not declare
+the baseline approved.
 
 ------------------------------------------------------------------------
 

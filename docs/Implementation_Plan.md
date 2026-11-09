@@ -121,7 +121,7 @@ Never treat Implemented, Verified and Released as interchangeable.
 
 Before implementation, inspect the actual repository and identify the current approved versions of the project documents.
 
-DocumentAuthorityPRD.mdProduct goals, scope, user journeys and user-visible behavior.REQUIREMENTS\_CATALOG.mdStable requirement IDs and acceptance criteria.ADD\_Comprehensive.mdArchitecture, module responsibilities and dependency boundaries.TECHNICAL\_SPEC\_v2.mdApproved technical baseline, proposed defaults and deployment-dependent configuration.DECISIONS.mdRecorded product, architecture and technical decisions.ASSUMPTIONS\_AND\_DEPENDENCIES.mdAssumptions, open decisions, dependencies and risks.SCOPE\_AND\_RELEASES\_v2.mdRelease goals, proposed allocations and release gates.TESTING\_STRATEGY.mdTest layers, critical scenarios and quality gates.REQUIREMENTS\_TRACEABILITY\_v2.mdRequirement-to-design, implementation and test traceability.DESIGN\_SYSTEM.mdVisual language, components, interaction and accessibility rules, if present in the repository.PAGE\_DESIGN\_SPECIFICATION.mdPage composition, Admin workflows and visitor journeys, if present in the repository.AGENTS.mdRepository-specific instructions for coding agents, if present.
+DocumentAuthorityPRD.mdProduct goals, scope, user journeys and user-visible behavior.REQUIREMENTS\_CATALOG.md Stable requirement IDs, acceptance criteria and the canonical 112-ID baseline; legacy identifiers aliased in REQUIREMENTS\_ALIAS\_ANNEX.md.ADD\_Comprehensive.mdArchitecture, module responsibilities and dependency boundaries.TECHNICAL\_SPEC\_v2.mdApproved technical baseline, proposed defaults and deployment-dependent configuration.Decisions.mdRecorded product, architecture and technical decisions (decision register D-001–D-041).ASSUMPTIONS\_AND\_DEPENDENCIES.mdAssumptions, open decisions, dependencies and risks.SCOPE\_AND\_RELEASES\_v2.mdRelease goals, proposed allocations and release gates.TESTING\_STRATEGY.mdTest layers, critical scenarios and quality gates.REQUIREMENTS\_TRACEABILITY\_v2.md Requirement-to-design, implementation and test traceability on the canonical 112-ID baseline.DESIGN\_SYSTEM.mdVisual language, components, interaction and accessibility rules, if present in the repository.PAGE\_DESIGN\_SPECIFICATION\_v2.0.mdPage composition, Admin workflows and visitor journeys, if present in the repository.AGENTS.mdRepository-specific instructions for coding agents, if present.
 
 ### 3.1 Conflict resolution
 
@@ -154,15 +154,15 @@ The available documentation identifies the following issues:
     
 *   TECHNICAL\_SPEC\_v2.md distinguishes approved technology choices from proposed defaults and unresolved deployment decisions.
     
-*   The Requirements Catalog contains 78 requirement IDs.
+*   RESOLVED (8 November 2026, reconciliation decisions D1–D6): the Requirements Catalog now defines the canonical 112-ID requirement baseline; the former 78-ID inventory was superseded. RE-010 was merged into AD-003 as an alias, and every legacy FR-/NFR-/FR-I18N identifier remains resolvable only through REQUIREMENTS_ALIAS_ANNEX.md.
     
-*   The current RTM identifies implementation-task mapping as incomplete.
+*   The current RTM identifies implementation-task mapping as incomplete; its Section 5 master matrix is now re-pointed to the canonical 112-ID baseline published on 8 November 2026.
     
-*   The current Scope v2 references FR-I18N-001 through FR-I18N-003, but those IDs are absent from the current Requirements Catalog. Do not use these IDs as if they were valid.
+*   RESOLVED (decision D4): the phantom FR-I18N-001–FR-I18N-003 references that Scope v2 made are retired; their intended meaning maps to RE-003, RE-004, RE-005 and AD-003 and is recorded in REQUIREMENTS_ALIAS_ANNEX.md. Do not resurrect these legacy IDs.
     
-*   The PRD describes an independently switchable Bangla Admin interface, but the current catalog does not provide a distinct requirement ID for that workflow.
+*   RESOLVED (decision D3): the PRD's independently switchable Bangla Admin interface is covered by AD-003 (English/Bangla Admin interface language independent of the public website language); the duplicate RE-010 was merged into it.
     
-*   The current implementation plan contains seeded default administrator credentials, an unresolved Bootstrap/Tailwind choice, an environment-specific database connection string and a much narrower feature scope than the current PRD.
+*   RESOLVED against this revision: this plan forbids seeded default administrator credentials, adopts Bootstrap 5 as the approved CSS foundation (Tailwind is not in the baseline), and sources deployment-dependent values from configuration; the former narrow scope is superseded by the canonical 112-ID baseline, pending final plan approval.
     
 
 Resolve or explicitly record these issues before treating the plan as a fully approved execution baseline.
@@ -364,7 +364,7 @@ Establish a reproducible local development environment and safe repository workf
 
 **Requirements traceability**
 
-NFR-SEC-003, NFR-MAINT-001, NFR-DEP-001.
+NID-003, NFR-006, OP-005.
 
 **Expected deliverables**
 
@@ -449,7 +449,7 @@ Create or validate the solution structure and enforce Clean Architecture depende
 
 **Requirements traceability**
 
-NFR-MAINT-001, NFR-DEP-001.
+NFR-006, OP-005.
 
 **Expected deliverables**
 
@@ -532,7 +532,7 @@ Create a reliable ASP.NET Core MVC host with consistent configuration, diagnosti
 
 **Requirements traceability**
 
-NFR-SEC-001, NFR-SEC-003, NFR-REL-001, NFR-DEP-001, NFR-OBS-001.
+NID-002, NID-003, NFR-005, OP-005, OP-001.
 
 **Expected deliverables**
 
@@ -621,7 +621,7 @@ Establish SQL Server persistence, EF Core mappings, migration discipline and dat
 
 **Requirements traceability**
 
-FR-SEC-002, NFR-DATA-001, NFR-MAINT-001, NFR-REL-001.
+ID-002, NFR-007, NFR-006, NFR-005.
 
 **Expected deliverables**
 
@@ -716,7 +716,7 @@ Implement the domain model required by the approved product scope without embedd
 
 **Requirements traceability**
 
-FR-ADM-002, FR-ADM-003, FR-MED-005, FR-GAL-003–FR-GAL-006, FR-CON-001–FR-CON-005, FR-RES-001–FR-RES-003, NFR-DATA-001, NFR-MAINT-001.
+CT-001, CT-002, ML-006, GA-003–GA-006, CO-002–CO-006, RE-001, RE-002, AN-005, NFR-007, NFR-006.
 
 **Expected deliverables**
 
@@ -799,7 +799,7 @@ Establish consistent application use cases, validation, mapping and cross-cuttin
 
 **Requirements traceability**
 
-Cross-cutting application support for FR-ADM-002–FR-ADM-008, FR-SEC-001–FR-SEC-007, FR-MED-001–FR-MED-012, FR-GAL-001–FR-GAL-018, FR-CON-001–FR-CON-005, FR-RES-001–FR-RES-003, NFR-MAINT-001, NFR-DATA-001.
+Cross-cutting application support for CT-001–CT-006, AD-001, AD-002, AD-004, AD-006, ID-001–ID-007, ML-001–ML-014, GA-001–GA-015, CO-002–CO-006, RE-001, RE-002, AN-005, NFR-006, NFR-007.
 
 **Expected deliverables**
 
@@ -894,7 +894,7 @@ Implement the complete one-administrator authentication and protection model.
 
 **Requirements traceability**
 
-FR-ADM-001, FR-SEC-001–FR-SEC-007, NFR-SEC-001, NFR-SEC-002, NFR-SEC-003.
+ID-006, ID-001–ID-007, NID-002, NID-003.
 
 **Expected deliverables**
 
@@ -993,7 +993,7 @@ Create the protected Admin Panel structure and its core navigation, dashboard an
 
 **Requirements traceability**
 
-FR-ADM-001, FR-ADM-005, FR-ADM-006, FR-ADM-007, FR-ADM-008, NFR-OBS-001, NFR-ACC-001.
+ID-006, AD-001, AD-004, AD-002, AD-006, OP-001, NFR-001.
 
 **Expected deliverables**
 
@@ -1076,7 +1076,7 @@ Implement safe draft, preview, publish, unpublish and publication-state handling
 
 **Requirements traceability**
 
-FR-ADM-003, FR-ADM-004, FR-PUB-002, FR-GAL-005, FR-GAL-006, FR-RES-002, FR-SEO-002.
+CT-002, CT-006, CT-002, GA-005, GA-004, RE-002, PR-008.
 
 **Expected deliverables**
 
@@ -1165,7 +1165,7 @@ Implement Admin management for the foundational personal and professional portfo
 
 **Requirements traceability**
 
-FR-ADM-002, FR-ADM-006, FR-ADM-007, FR-ADM-008, FR-PUB-001, FR-PUB-002, NFR-DATA-001.
+CT-001, AD-004, AD-002, AD-006, PR-001, CT-002, NFR-007.
 
 **Expected deliverables**
 
@@ -1241,7 +1241,7 @@ Implement structured management of engineering projects, achievements and certif
 
 **Requirements traceability**
 
-FR-ADM-002, FR-ADM-003, FR-ADM-007, FR-ADM-008, FR-PUB-001, FR-PUB-002.
+CT-001, CT-002, AD-002, AD-006, PR-001, CT-002.
 
 **Expected deliverables**
 
@@ -1328,7 +1328,7 @@ Build the public-facing design foundation and the first group of portfolio pages
 
 **Requirements traceability**
 
-FR-PUB-001, FR-PUB-002, FR-PUB-003, FR-PUB-006, FR-ADM-006, NFR-ACC-001, NFR-COMP-001.
+PR-001, CT-002, PR-005, PR-004, AD-004, NFR-001, NFR-002.
 
 **Expected deliverables**
 
@@ -1409,7 +1409,7 @@ Complete the main public portfolio content experience beyond the foundational pa
 
 **Requirements traceability**
 
-FR-PUB-001, FR-PUB-002, FR-PUB-006.
+PR-001, CT-002, PR-004.
 
 **Expected deliverables**
 
@@ -1494,7 +1494,7 @@ Implement secure resume version management, publication, preview and download.
 
 **Requirements traceability**
 
-FR-PUB-008, FR-RES-001, FR-RES-002, FR-RES-003, FR-MED-003, FR-MED-004, NFR-SEC-002, NFR-PRIV-001.
+RE-009, RE-001, RE-002, AN-005, ML-003, ML-002, NID-002, AN-002.
 
 **Expected deliverables**
 
@@ -1589,7 +1589,7 @@ Establish durable media storage and a secure upload pipeline that can be reused 
 
 **Requirements traceability**
 
-FR-MED-001, FR-MED-002, FR-MED-003, FR-MED-004, FR-MED-011, FR-CON-004, FR-GAL-018, NFR-SEC-001, NFR-SEC-002, NFR-PRIV-001, NFR-REL-001.
+ML-001, ML-013, ML-003, ML-002, ML-004, CO-005, GA-010, NID-002, AN-002, NFR-005.
 
 **Expected deliverables**
 
@@ -1688,7 +1688,7 @@ Complete the reusable Media Library management capabilities.
 
 **Requirements traceability**
 
-FR-MED-001–FR-MED-012, FR-ADM-007, FR-ADM-008, NFR-DATA-001, NFR-PERF-001, NFR-PRIV-001.
+ML-001–ML-014, AD-002, AD-006, NFR-007, NFR-003, AN-002.
 
 **Expected deliverables**
 
@@ -1795,7 +1795,7 @@ Implement the complete visitor contact submission and Admin inbox workflow with 
 
 **Requirements traceability**
 
-FR-PUB-007, FR-CON-001–FR-CON-005, FR-ADM-005, FR-ADM-007, FR-MED-003, FR-MED-004, NFR-SEC-001, NFR-SEC-002, NFR-PRIV-001, NFR-REL-001, NFR-DATA-001.
+CO-001, CO-002–CO-006, AD-001, AD-002, ML-003, ML-002, NID-002, AN-002, NFR-005, NFR-007.
 
 **Expected deliverables**
 
@@ -1902,7 +1902,7 @@ Implement the secure Gallery foundation and its core album/photo publishing beha
 
 **Requirements traceability**
 
-FR-GAL-001–FR-GAL-006, FR-GAL-008, FR-GAL-017, FR-GAL-018, FR-PUB-001, FR-PUB-002, NFR-SEC-002, NFR-PRIV-001, NFR-DATA-001.
+GA-001–GA-006, GA-003, GA-002, GA-010, PR-001, CT-002, NID-002, AN-002, NFR-007.
 
 **Expected deliverables**
 
@@ -2012,7 +2012,7 @@ Complete the visitor-facing Gallery experience and its advanced management contr
 
 **Requirements traceability**
 
-FR-GAL-007–FR-GAL-015, FR-PUB-001, FR-PUB-006, FR-ADM-007, NFR-ACC-001, NFR-PRIV-001.
+GA-003, GA-006, GA-007, GA-008, GA-011–GA-013, PR-001, PR-004, AD-002, NFR-001, AN-002.
 
 **Expected deliverables**
 
@@ -2117,7 +2117,7 @@ Implement the approved multilingual public experience and search-engine metadata
 
 **Requirements traceability**
 
-FR-PUB-001, FR-PUB-002, FR-PUB-004, FR-SEO-001, FR-SEO-002, FR-RES-001, NFR-PRIV-001.
+PR-001, CT-002, RE-003, RE-006, PR-008, RE-001, AN-002.
 
 **Traceability blocker**
 
@@ -2220,7 +2220,7 @@ Implement global public search and privacy-conscious analytics using only eligib
 
 **Requirements traceability**
 
-FR-PUB-005, FR-GAL-009, FR-GAL-016, FR-RES-003, FR-ANA-001, FR-ANA-002, FR-ADM-005, NFR-PRIV-001, NFR-PERF-001.
+PR-003, GA-011, AN-006, AN-005, AN-001, AN-003, AD-001, AN-002, NFR-003.
 
 **Expected deliverables**
 
@@ -2329,7 +2329,7 @@ Provide dependable operational visibility and demonstrate the application's reco
 
 **Requirements traceability**
 
-FR-ADM-005, FR-ADM-006, FR-ADM-004, FR-CON-002, FR-CON-005, FR-MED-012, FR-GAL-018, NFR-REL-001, NFR-DR-001, NFR-OBS-001, NFR-DATA-001.
+AD-001, AD-004, CT-006, CO-003, CO-006, OP-003, GA-010, NFR-005, OP-004, OP-001, NFR-007.
 
 **Expected deliverables**
 
@@ -2440,7 +2440,7 @@ Validate the complete application against its security, accessibility, performan
 
 **Requirements traceability**
 
-FR-PUB-003, FR-PUB-006, FR-ADM-001, FR-SEC-001–FR-SEC-007, FR-MED-003, FR-MED-004, FR-MED-011, FR-GAL-005, FR-GAL-006, FR-GAL-010, FR-GAL-013, FR-CON-004, NFR-SEC-001–NFR-SEC-003, NFR-PRIV-001, NFR-ACC-001, NFR-PERF-001, NFR-COMP-001, NFR-MAINT-001, NFR-REL-001, NFR-DATA-001.
+PR-005, PR-004, ID-006, ID-001–ID-007, ML-003, ML-002, ML-004, GA-005, GA-004, GA-006, GA-007, CO-005, NID-002–NID-003, AN-002, NFR-001, NFR-003, NFR-002, NFR-006, NFR-005, NFR-007.
 
 **Expected deliverables**
 
@@ -2557,7 +2557,7 @@ Deploy the verified application to the selected production environment and compl
 
 **Requirements traceability**
 
-NFR-SEC-003, NFR-REL-001, NFR-DR-001, NFR-DEP-001, NFR-OBS-001, NFR-DATA-001, plus all requirements allocated to the release being deployed.
+NID-003, NFR-005, OP-004, OP-005, OP-001, NFR-007, plus all requirements allocated to the release being deployed.
 
 **Expected deliverables**
 
@@ -2628,7 +2628,7 @@ This section provides the master implementation destination for the 78 requireme
 
 The mapping identifies where a requirement is implemented or verified. It does not mean that the requirement is already implemented or that every release contains its full acceptance scope.
 
-Requirement IDImplementation phase(s)FR-PUB-001P12, P13, P18, P19, P20FR-PUB-002P09, P12, P13, P14, P18, P19, P20, P21FR-PUB-003P12, P23FR-PUB-004P20FR-PUB-005P21FR-PUB-006P12, P19, P23FR-PUB-007P17FR-PUB-008P14FR-ADM-001P07, P08FR-ADM-002P10, P11FR-ADM-003P09, P10, P11FR-ADM-004P09, P22FR-ADM-005P08, P22FR-ADM-006P08, P10, P11, P22FR-ADM-007P08, P10, P11, P16, P17, P19, P21FR-ADM-008P08, P10, P11FR-SEC-001P07FR-SEC-002P04, P07FR-SEC-003P07FR-SEC-004P07FR-SEC-005P07FR-SEC-006P07FR-SEC-007P07, P08, P16, P17, P18, P19, P22FR-MED-001P15, P16FR-MED-002P15, P16FR-MED-003P15FR-MED-004P15FR-MED-005P16FR-MED-006P16FR-MED-007P16FR-MED-008P16FR-MED-009P16FR-MED-010P16FR-MED-011P15FR-MED-012P16, P22FR-GAL-001P18, P19FR-GAL-002P18, P19FR-GAL-003P18FR-GAL-004P18FR-GAL-005P18FR-GAL-006P18FR-GAL-007P19FR-GAL-008P19FR-GAL-009P19, P21FR-GAL-010P19, P23FR-GAL-011P19FR-GAL-012P19, P20FR-GAL-013P19FR-GAL-014P19FR-GAL-015P19FR-GAL-016P21FR-GAL-017P18FR-GAL-018P18, P22FR-CON-001P17FR-CON-002P17, P22FR-CON-003P17FR-CON-004P15, P17FR-CON-005P17, P22FR-RES-001P14, P20FR-RES-002P14FR-RES-003P14, P21FR-SEO-001P20FR-SEO-002P20, P21FR-ANA-001P21FR-ANA-002P21NFR-SEC-001P03, P07, P15, P17, P23NFR-SEC-002P07, P15, P17, P18, P19, P23NFR-SEC-003P01, P03, P24NFR-PRIV-001P17, P20, P21, P22, P23NFR-ACC-001P08, P12, P19, P23NFR-PERF-001P03, P16, P21, P23NFR-REL-001P03, P17, P22, P24NFR-DR-001P22, P24NFR-COMP-001P12, P19, P23NFR-MAINT-001P01, P02, P03, P05, P06, P23NFR-DEP-001P01, P02, P03, P24NFR-OBS-001P03, P08, P22, P24NFR-DATA-001P04, P05, P15, P16, P17, P22
+Requirement IDImplementation phase(s)PR-001P12, P13, P18, P19, P20CT-002P09, P10, P11, P12, P13, P14, P18, P19, P20, P21PR-005P12, P23RE-003P20PR-003P21PR-004P12, P19, P23CO-001P17RE-009P14ID-006P07, P08, P15, P17, P18, P19, P23CT-001P10, P11CT-006P09, P22AD-001P08, P22AD-004P08, P10, P11, P22AD-002P08, P10, P11, P16, P17, P19, P21AD-006P08, P10, P11ID-002P04, P07ID-003P07ID-004P07ID-005P07ID-001P07ID-007P07, P08, P16, P17, P18, P19, P22ML-001P15, P16ML-013P15, P16ML-003P15ML-002P15ML-006P16ML-005P16ML-008P16ML-009P16ML-014P16, P18ML-010P16ML-004P15OP-003P16, P22GA-001P18, P19GA-006P18, P19, P23GA-003P18, P19GA-005P18GA-004P18GA-014P19GA-011P19, P21GA-012P19GA-013P19, P20GA-007P19GA-008P19AN-006P21GA-002P18GA-010P18, P22CO-002P17CO-003P17, P22CO-004P17CO-005P15, P17CO-006P17, P22RE-001P14, P20RE-002P14AN-005P14, P21RE-006P20PR-008P20, P21AN-001P21AN-003P21SEC-001P03, P07, P15, P17, P23SEC-004P01, P03, P24AN-002P17, P20, P21, P22, P23NFR-001P08, P12, P19, P23NFR-003P03, P16, P21, P23NFR-005P03, P17, P22, P24OP-004P22, P24NFR-002P12, P19, P23OP-005P01, P02, P03, P24OP-001P03, P08, P22, P24NFR-007P04, P05, P15, P16, P17, P22 Note (8 November 2026): rows carry forward the legacy phase tags through the primary canonical mapping; full legacy decompositions remain in REQUIREMENTS_ALIAS_ANNEX.md. Catalog-only additions without legacy phase tags (AD-003, AD-005, AN-004, AN-007, AN-008, AN-009, AN-010, CO-007, CO-008, CT-003, CT-004, CT-005, GA-009, GA-015, ML-007, ML-011, ML-012, NFR-004, NFR-006, OP-002, OP-006, OP-007, OP-008, OP-009, OP-010, PR-002, PR-006, PR-007, PR-009, RE-004, RE-005, RE-007, RE-008, RE-011, RE-012, SEC-002, SEC-003, SEC-005, SEC-006, SEC-007, SEC-008, SEC-009) receive phase allocation during the Phase 00 baseline reconciliation against the canonical catalog; none is scheduled here without that check.
 
 7.1 Traceability rules
 ----------------------
@@ -2655,11 +2655,11 @@ Requirement IDImplementation phase(s)FR-PUB-001P12, P13, P18, P19, P20FR-PUB-002
 
 The following must be resolved through the requirements change process:
 
-*   FR-I18N-001–FR-I18N-003 are referenced by the current Scope v2 but do not exist in the current Requirements Catalog.
+*   RESOLVED (8 November 2026, decision D4): the phantom FR-I18N-001–FR-I18N-003 identifiers referenced by Scope v2 were retired; their recovered meaning maps to RE-003, RE-004, RE-005 and AD-003 per REQUIREMENTS_ALIAS_ANNEX.md.
     
-*   The PRD's independently switchable Admin interface language requires an explicit requirement and acceptance criteria if it remains committed scope.
+*   RESOLVED (decision D3): this workflow is covered by AD-003 and its recorded acceptance criteria; the duplicate RE-010 row was merged into AD-003.
     
-*   Do not silently add these IDs to the implementation plan as though they were already approved.
+*   Do not resurrect retired legacy identifiers. Canonical additions still require owner ratification (Catalog DEC-012); nothing in this rule grants approval by itself.
     
 
 8\. Release Alignment
@@ -2988,9 +2988,9 @@ Before a release:
 
 Maintain a phase progress register in the repository or approved project-tracking location.
 
-PhaseNameStatusRequirementsVerification evidenceBlockerP00Baseline ReconciliationNot StartedCross-cutting——P01Development EnvironmentNot StartedNFR-SEC-003, NFR-MAINT-001, NFR-DEP-001——P02Architecture SkeletonNot StartedNFR-MAINT-001, NFR-DEP-001——P03Web Host FoundationNot StartedNFR-SEC-001, NFR-REL-001, NFR-OBS-001——P04Persistence FoundationNot StartedFR-SEC-002, NFR-DATA-001——P05Domain ModelNot StartedDomain-related requirements——P06Application FoundationNot StartedCross-cutting use cases——P07Identity and SecurityNot StartedFR-ADM-001, FR-SEC-001–007——P08Admin ShellNot StartedFR-ADM-005–008——P09PublishingNot StartedFR-ADM-003–004, FR-PUB-002——P10Core Content CMSNot StartedFR-ADM-002, FR-PUB-001——P11Projects and Supporting CMSNot StartedFR-ADM-002, FR-PUB-001——P12Public Core PagesNot StartedFR-PUB-001, 003, 006——P13Public Projects and Supporting PagesNot StartedFR-PUB-001, 002——P14ResumeNot StartedFR-PUB-008, FR-RES-001–003——P15Secure Media FoundationNot StartedFR-MED-001–004, FR-MED-011——P16Media Library WorkflowsNot StartedFR-MED-001–012——P17Contact and InboxNot StartedFR-PUB-007, FR-CON-001–005——P18Gallery FoundationNot StartedFR-GAL-001–006, 008, 017–018——P19Advanced GalleryNot StartedFR-GAL-007–015——P20Localization and SEONot StartedFR-PUB-004, FR-SEO-001–002—Catalog gapP21Search and AnalyticsNot StartedFR-PUB-005, FR-GAL-016, FR-ANA-001–002——P22Operations and RecoveryNot StartedNFR-REL-001, NFR-DR-001, NFR-OBS-001, NFR-DATA-001—Provider decisionsP23Quality and HardeningNot StartedCross-cutting NFRs—Budgets/browser policyP24Production ReleaseNot StartedRelease requirements—Hosting/domain
+PhaseNameStatusRequirementsVerification evidenceBlockerP00Baseline ReconciliationNot StartedCross-cutting——P01Development EnvironmentNot StartedSEC-004, NFR-006, OP-005——P02Architecture SkeletonNot StartedNFR-006, OP-005——P03Web Host FoundationNot StartedSEC-001, NFR-005, OP-001——P04Persistence FoundationNot StartedID-002, NFR-007——P05Domain ModelNot StartedDomain-related requirements——P06Application FoundationNot StartedCross-cutting use cases——P07Identity and SecurityNot StartedID-001–ID-007——P08Admin ShellNot StartedAD-001, AD-002, AD-004, AD-006——P09PublishingNot StartedCT-002, CT-006——P10Core Content CMSNot StartedCT-001, PR-001——P11Projects and Supporting CMSNot StartedCT-001, PR-001——P12Public Core PagesNot StartedPR-001, PR-005, PR-004——P13Public Projects and Supporting PagesNot StartedPR-001, CT-002——P14ResumeNot StartedRE-009, RE-001, RE-002, AN-005——P15Secure Media FoundationNot StartedML-001, ML-002, ML-003, ML-013, ML-004——P16Media Library WorkflowsNot StartedML-001–ML-014——P17Contact and InboxNot StartedCO-001, CO-002–CO-006——P18Gallery FoundationNot StartedGA-001–GA-006, GA-003, GA-002, GA-010——P19Advanced GalleryNot StartedGA-003, GA-006, GA-007, GA-008, GA-011–GA-013——P20Localization and SEONot StartedRE-003, PR-008, RE-006—Catalog gapP21Search and AnalyticsNot StartedPR-003, AN-006, AN-001, AN-003, AN-004, AN-010——P22Operations and RecoveryNot StartedNFR-005, OP-004, OP-001, NFR-007—Provider decisionsP23Quality and HardeningNot StartedCross-cutting NFRs—Budgets/browser policyP24Production ReleaseNot StartedRelease requirements—Hosting/domain
 
-The progress register is a starting template. Update it with actual task references and evidence as implementation proceeds.
+ Requirement coverage note (8 November 2026): the register rows carry forward legacy phase tags through the primary canonical mapping; legacy decompositions and any remaining catalog-only allocations are resolved with the Phase 00 baseline check per REQUIREMENTS_ALIAS_ANNEX.md. The progress register is a starting template. Update it with actual task references and evidence as implementation proceeds.
 
 11.1 Phase completion rule
 --------------------------
@@ -3021,7 +3021,7 @@ A phase with failing tests remains In Progress or Blocked, not Verified.
 
 The following items must be tracked and resolved at the appropriate stage.
 
-IDItemImpactRequired actionBL-001SCOPE\_AND\_RELEASES\_v2.md remains a review draft.Release assignments may change.Obtain owner approval before treating allocations as final.BL-002TECHNICAL\_SPEC\_v2.md remains a review draft.Some technical defaults are not final.Approve or revise technical choices before provider-specific work.BL-003FR-I18N-001–FR-I18N-003 are referenced by Scope v2 but absent from the Catalog.Invalid requirement traceability.Correct Scope or formally add approved requirements to the Catalog.BL-004Admin interface language requirement lacks a distinct catalog trace.Admin localization acceptance cannot be proven.Add or explicitly map the requirement through the approved change process.BL-005Hosting provider and canonical domain are unresolved.Production architecture and deployment configuration.Select before P24.BL-006Minimum browser versions are unresolved.Compatibility testing scope.Approve the support policy before release sign-off.BL-007Numeric performance budgets are unresolved.Performance acceptance cannot be measured against a target.Establish and approve budgets using representative Staging infrastructure.BL-008Rich-text editor remains open.Admin content editor implementation.Review editor security, maintenance and licensing before selection.BL-009Background-job provider is proposed, not automatically approved.Scheduled jobs, retries and operational visibility.Approve provider before provider-specific integration.BL-010Transactional outbox is proposed.Reliable email and event delivery.Confirm design and implementation scope before integrating.BL-011ClamAV deployment is proposed.Secure upload pipeline and hosting resources.Confirm hosting compatibility and deployment model.BL-012Image-processing provider is unresolved.Media variants and processing operations.Select a supported provider after compatibility and licensing review.BL-013Analytics provider, consent and retention details remain open.Privacy and analytics implementation.Approve privacy model before enabling nonessential tracking.BL-014Backup destination and retention are not final.Recovery objectives and operating cost.Select a separate failure-domain destination and validate recovery.BL-015Production Mailtrap sending requires domain verification.Production contact notifications.Verify the sending domain and configure protected credentials.BL-016Owner content and translations are required.Credibility and publication readiness.Supply and review accurate profile, project, resume, Gallery and translation content.BL-017Legal and privacy policy wording requires review.Production privacy and policy readiness.Review wording for the actual deployment jurisdiction.BL-018Test-case register is not complete.Acceptance evidence cannot be consistently referenced.Create stable test IDs and map them to the 78 catalog requirements.
+IDItemImpactRequired actionBL-001SCOPE\_AND\_RELEASES\_v2.md remains a review draft.Release assignments may change.Obtain owner approval before treating allocations as final.BL-002TECHNICAL\_SPEC\_v2.md remains a review draft.Some technical defaults are not final.Approve or revise technical choices before provider-specific work.BL-003 Phantom FR-I18N-001–FR-I18N-003 references. RESOLVED at document level (decisions D1–D6): meaning mapped to RE-003, RE-004, RE-005 and AD-003; see REQUIREMENTS_ALIAS_ANNEX.md. No code action remains.BL-004 Admin interface language catalog trace. RESOLVED (decision D3): AD-003 carries the requirement with acceptance criteria; the RE-010 duplicate was merged into it.BL-005Hosting provider and canonical domain are unresolved.Production architecture and deployment configuration.Select before P24.BL-006Minimum browser versions are unresolved.Compatibility testing scope.Approve the support policy before release sign-off.BL-007Numeric performance budgets are unresolved.Performance acceptance cannot be measured against a target.Establish and approve budgets using representative Staging infrastructure.BL-008Rich-text editor remains open.Admin content editor implementation.Review editor security, maintenance and licensing before selection.BL-009Background-job provider is proposed, not automatically approved.Scheduled jobs, retries and operational visibility.Approve provider before provider-specific integration.BL-010Transactional outbox is proposed.Reliable email and event delivery.Confirm design and implementation scope before integrating.BL-011ClamAV deployment is proposed.Secure upload pipeline and hosting resources.Confirm hosting compatibility and deployment model.BL-012Image-processing provider is unresolved.Media variants and processing operations.Select a supported provider after compatibility and licensing review.BL-013Analytics provider, consent and retention details remain open.Privacy and analytics implementation.Approve privacy model before enabling nonessential tracking.BL-014Backup destination and retention are not final.Recovery objectives and operating cost.Select a separate failure-domain destination and validate recovery.BL-015Production Mailtrap sending requires domain verification.Production contact notifications.Verify the sending domain and configure protected credentials.BL-016Owner content and translations are required.Credibility and publication readiness.Supply and review accurate profile, project, resume, Gallery and translation content.BL-017Legal and privacy policy wording requires review.Production privacy and policy readiness.Review wording for the actual deployment jurisdiction.BL-018Test-case register is not complete.Acceptance evidence cannot be consistently referenced.Create stable test IDs and map them to the 78 catalog requirements.
 
 12.1 Risk handling rules
 ------------------------

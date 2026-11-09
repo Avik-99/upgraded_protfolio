@@ -113,3 +113,38 @@ without evidence.
 -   Accessibility review completed.
 -   Performance budgets met or exceptions documented.
 -   Documentation and traceability updated.
+
+## 8. Requirement-to-scenario mapping (canonical identifiers)
+
+**Identifier discipline (8 November 2026).** Test cases must reference
+only canonical `REQUIREMENTS_CATALOG.md` IDs from the canonical 112-ID
+baseline. Retired legacy identifiers (legacy `FR-*/NFR-*`, phantom
+`FR-I18N-*`) must never appear in test names, case IDs, or evidence
+records; resolve any historical reference through
+`REQUIREMENTS_ALIAS_ANNEX.md`. The mappings below mirror the critical
+scenario links in `REQUIREMENTS_TRACEABILITY_v2.md` §8.2 and remain
+provisional until the owner approves the release baseline.
+
+| Critical scenario (§2) | Canonical requirements covered |
+|---|---|
+| Setup availability and two concurrent setup attempts; setup closes after success | ID-001, ID-002, ID-003, ID-006 |
+| MFA enrollment, lockout, reset expiry, session revocation | ID-004, ID-005, ID-006, ID-007, SEC-001–SEC-004 |
+| Draft/private/unlisted exclusion from public list, search, sitemap and direct routes | CT-002, CT-003, RE-002, RE-004, RE-006, RE-009, GA-002, GA-004, GA-005, GA-013, PR-008 |
+| Private media and attachment authorization | ML-002, ML-003, ML-004, GA-007, CO-005, CO-007, RE-002, RE-009, ID-006, SEC-007 |
+| Scanner unavailable or unsafe upload quarantines fail-closed | ML-003, ML-004, ML-013, SEC-001–SEC-003, NFR-005 |
+| Gallery parent/child visibility (unpublished photo inside published album) | GA-004, GA-005, GA-006, GA-007, GA-010, GA-011, GA-012, GA-013, ML-002, OP-003 |
+| Gallery empty state before owner uploads; only owner-uploaded photographs | GA-001, GA-002 |
+| Email/provider outage after contact submission must not lose the message | CO-001, CO-002, CO-003, CO-004, CO-008, NFR-005, NFR-007 |
+| Retention/deletion and attachment lifecycle with confirmation and audit | CO-005, CO-006, CO-007, AN-002, AN-010, SEC-007, SEC-009, NFR-007, OP-003 |
+| Backup including database and media manifest; restore integrity | ML-002, GA-010, OP-003, OP-004, OP-007, NFR-007 |
+| WCAG 2.2 AA and browser/device coverage | PR-004, PR-006, PR-009, GA-011, NFR-001, NFR-002 |
+| Performance budgets on representative staging | NFR-003 |
+
+Cross-cutting non-functional coverage that is exercised across all
+scenarios rather than owned by one scenario: SEC-001–SEC-009 (secure
+defaults and hardening), AN-002 (admin actions excluded from visitor
+metrics), OP-001 (health/observability), OP-002 (maintenance mode),
+NFR-005 (reliability), NFR-006 (maintainability). Scenario coverage for
+these is allocated during test-case authoring; do not claim a
+requirement Verified until a test case with evidence references it
+exactly once.

@@ -7,7 +7,7 @@
 **Document status:** Architecture proposal for review\
 **Version:** 1.0-draft\
 **Related documents:** PRD.md, REQUIREMENTS_CATALOG.md,
-TECHNICAL_SPEC.md, AGENTS.md, TESTING_STRATEGY.md
+TECHNICAL_SPEC_v2.md, AGENTS.md, TESTING_STRATEGY.md
 
 ------------------------------------------------------------------------
 
@@ -1899,13 +1899,13 @@ The ADD is ready to guide implementation when:
     and user-facing requirements.
 -   **REQUIREMENTS_CATALOG.md** defines detailed functional requirements
     and acceptance criteria.
--   **ADD.md** defines architectural boundaries, responsibilities, and
-    system design.
--   **TECHNICAL_SPEC.md** defines exact package versions, configuration,
+-   **ADD_Comprehensive.md** (this document) defines architectural
+    boundaries, responsibilities, and system design.
+-   **TECHNICAL_SPEC_v2.md** defines exact package versions, configuration,
     schema, endpoints, implementation contracts, and operational
     settings.
--   **DESIGN_SYSTEM.md** and **PAGE_DESIGN_SPEC.md** define the UI
-    system and page behaviour.
+-   **DESIGN_SYSTEM.md** and **PAGE_DESIGN_SPECIFICATION_v2.0.md** define
+    the UI system and page behaviour.
 -   **TESTING_STRATEGY.md** defines how requirements and architecture
     are verified.
 -   **AGENTS.md** defines the rules AI coding agents must follow.
